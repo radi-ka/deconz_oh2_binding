@@ -1,3 +1,25 @@
+I just started this little projekt to circumvent annoying polling of the bridge by leveraging the websocket interface offered by deCONZ. This is a new project so code is ugly, there is near to no documentation and deployment is messy. As a bonus there will be quite a few bugs.
+
+If you like this idea feel free to contribute :)
+
+## install
+1. clone this repo into your binding in thw openhab project (for me: ~/eclipse/openhab2-master/git/openhab2-addons/addons/binding/ )
+2. add <module>org.openhab.binding.deconz_websocket</module> to ~/eclipse/openhab2-master/git/openhab2-addons/addons/binding/pom.xml
+3. run `mvn clean package` in the plugin directory
+4. copy the resulting jar to your openhab addon dir
+5. profit
+
+## usage
+configure the binding with the ip and ws port of your bridge.
+identify one of your supported sensors (currently: temp, humidity, open/closed) and remember its id. 
+Then create a new thing (i do this via PaperUI as i dont know the syntax of the textfiles yet) and provide remembered id.
+
+I tested this code with 2.3-snapshot of openhab and deCONZ v 2.05.04
+
+
+
+
+# some boilerplate that has to be filled:
 # <bindingName> Binding
 
 _Give some details about what this binding is meant for - a protocol, system, specific device._
