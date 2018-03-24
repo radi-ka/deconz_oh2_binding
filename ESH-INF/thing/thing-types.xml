@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="deconz_websocket" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
+
+	<thing-type id="deconz">
+		<label>deCONZ Websocket support</label>
+		<description>Establish connection to deCONZ bridge and parse events.</description>
+
+		<channels>
+			<channel id="allEvents" typeId="allEvents" />
+		</channels>
+
+		<config-description>
+			<parameter name="type" type="text" required="false">
+				<label>Type</label>
+				<description>e.g. sensors, lights, groups</description>
+			</parameter>
+			<parameter name="id" type="integer" required="false">
+				<label>Id</label>
+				<description>{"e":"changed","id":"9","r":"sensors","state":{"lastupdated":"2018-03-18T20:26:21","presence":false},"t":"event"}</description>
+			</parameter>
+		</config-description>
+	</thing-type>
+
+	<thing-type id="temperature">
+		<label>Temperature reporting device</label>
+		<description>Device that reports a temperature in its state.</description>
+
+		<channels>
+			<channel id="temperature" typeId="temperature" />
+		</channels>
+
+		<config-description>
+			<parameter name="id" type="integer" required="false">
+				<label>Id</label>
+				<description>{"e":"changed","id":"9","r":"sensors","state":{"lastupdated":"2018-03-18T20:26:21","temperature":2134},"t":"event"}</description>
+			</parameter>
+		</config-description>
+	</thing-type>
+
+	<thing-type id="openclose">
+		<label>Window/Door status reporting device</label>
+		<description>Device that reports open/closed in its state.</description>
+
+		<channels>
+			<channel id="openclosed" typeId="openclosed" />
+		</channels>
+
+		<config-description>
+			<parameter name="id" type="integer" required="false">
+				<label>Id</label>
+				<description>{"e":"changed","id":"9","r":"sensors","state":{"lastupdated":"2018-03-18T20:26:21","open":true},"t":"event"}</description>
+			</parameter>
+		</config-description>
+	</thing-type>
+
+	<channel-type id="allEvents">
+		<item-type>String</item-type>
+		<label>Events</label>
+		<description>channel tests.</description>
+		<state readOnly="true"></state>
+	</channel-type>
+
+	<channel-type id="temperature">
+		<item-type>Number</item-type>
+		<label>Temperature</label>
+		<description>Temperature updates.</description>
+		<state readOnly="true"></state>
+	</channel-type>
+
+	<channel-type id="openclosed">
+		<item-type>Contact</item-type>
+		<label>Open/Closed</label>
+		<description>Window/DoorSensor updates.</description>
+		<state readOnly="true"></state>
+	</channel-type>
+
+</thing:thing-descriptions>
