@@ -51,7 +51,7 @@ public class deCONZ_WebsocketHandlerFactory extends BaseThingHandlerFactory {
     Connection ws_connection;
 
     public deCONZ_WebsocketHandlerFactory() {
-        Collections.addAll(SUPPORTED_THING_TYPES_UIDS, THING_TYPE_ALL, THING_TYPE_TEMP, THING_TYPE_OPENCLOSED);
+        Collections.addAll(SUPPORTED_THING_TYPES_UIDS, THING_TYPE_ALL, THING_TYPE_TEMP, THING_TYPE_HUMIDITY, THING_TYPE_OPENCLOSED);
     }
 
     @Override

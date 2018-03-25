@@ -39,6 +39,22 @@
 		</config-description>
 	</thing-type>
 
+	<thing-type id="humidity">
+		<label>Humidity reporting device</label>
+		<description>Device that reports a humidity in its state.</description>
+
+		<channels>
+			<channel id="humidity" typeId="humidity" />
+		</channels>
+
+		<config-description>
+			<parameter name="id" type="integer" required="false">
+				<label>Id</label>
+				<description>{"e":"changed","id":"9","r":"sensors","state":{"lastupdated":"2018-03-18T20:26:21","humidity":2134},"t":"event"}</description>
+			</parameter>
+		</config-description>
+	</thing-type>
+
 	<thing-type id="openclose">
 		<label>Window/Door status reporting device</label>
 		<description>Device that reports open/closed in its state.</description>
@@ -66,6 +82,13 @@
 		<item-type>Number</item-type>
 		<label>Temperature</label>
 		<description>Temperature updates.</description>
+		<state readOnly="true"></state>
+	</channel-type>
+
+	<channel-type id="humidity">
+		<item-type>Number</item-type>
+		<label>Humidity</label>
+		<description>Humidity updates.</description>
 		<state readOnly="true"></state>
 	</channel-type>
 
