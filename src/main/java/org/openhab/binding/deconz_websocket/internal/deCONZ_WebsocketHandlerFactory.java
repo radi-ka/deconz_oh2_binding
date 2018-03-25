@@ -29,10 +29,7 @@ import org.openhab.binding.deconz_websocket.internal.StateBuilders.OpenClosedSta
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.component.annotations.Component;
 
-import java.util.Collections;
 import java.util.Dictionary;
-import java.util.HashSet;
-import java.util.Set;
 
 import static org.openhab.binding.deconz_websocket.deCONZ_WebsocketBindingConstants.*;
 
@@ -45,13 +42,10 @@ import static org.openhab.binding.deconz_websocket.deCONZ_WebsocketBindingConsta
 @Component(service = ThingHandlerFactory.class, immediate = true, configurationPid = "binding.deconz_websocket")
 @NonNullByDefault
 public class deCONZ_WebsocketHandlerFactory extends BaseThingHandlerFactory {
-    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = new HashSet<>();
     @Nullable
-    private
-    Connection ws_connection;
+    private Connection ws_connection;
 
     public deCONZ_WebsocketHandlerFactory() {
-        Collections.addAll(SUPPORTED_THING_TYPES_UIDS, THING_TYPE_ALL, THING_TYPE_TEMP, THING_TYPE_HUMIDITY, THING_TYPE_OPENCLOSED);
     }
 
     @Override

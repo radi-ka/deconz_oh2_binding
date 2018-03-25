@@ -11,8 +11,11 @@
  */
 package org.openhab.binding.deconz_websocket;
 
+import com.google.common.collect.ImmutableSet;
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.smarthome.core.thing.ThingTypeUID;
+
+import java.util.Set;
 
 /**
  * The {@link deCONZ_WebsocketBindingConstants} class defines common constants, which are
@@ -35,4 +38,11 @@ public class deCONZ_WebsocketBindingConstants {
     public static final ThingTypeUID THING_TYPE_TEMP = new ThingTypeUID(BINDING_ID, "temperature");
     public static final ThingTypeUID THING_TYPE_HUMIDITY = new ThingTypeUID(BINDING_ID, "humidity");
     public static final ThingTypeUID THING_TYPE_OPENCLOSED = new ThingTypeUID(BINDING_ID, "openclose");
+
+    public static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = ImmutableSet.of(
+            THING_TYPE_ALL,
+            THING_TYPE_TEMP,
+            THING_TYPE_HUMIDITY,
+            THING_TYPE_OPENCLOSED
+    );
 }

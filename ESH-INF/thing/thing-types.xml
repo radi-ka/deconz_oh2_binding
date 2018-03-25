@@ -12,14 +12,6 @@
 		</channels>
 
 		<config-description>
-			<parameter name="type" type="text" required="false">
-				<label>Type</label>
-				<description>e.g. sensors, lights, groups</description>
-			</parameter>
-			<parameter name="id" type="integer" required="false">
-				<label>Id</label>
-				<description>{"e":"changed","id":"9","r":"sensors","state":{"lastupdated":"2018-03-18T20:26:21","presence":false},"t":"event"}</description>
-			</parameter>
 		</config-description>
 	</thing-type>
 
@@ -32,7 +24,7 @@
 		</channels>
 
 		<config-description>
-			<parameter name="id" type="integer" required="false">
+			<parameter name="id" type="integer" required="true">
 				<label>Id</label>
 				<description>{"e":"changed","id":"9","r":"sensors","state":{"lastupdated":"2018-03-18T20:26:21","temperature":2134},"t":"event"}</description>
 			</parameter>
@@ -48,7 +40,7 @@
 		</channels>
 
 		<config-description>
-			<parameter name="id" type="integer" required="false">
+			<parameter name="id" type="integer" required="true">
 				<label>Id</label>
 				<description>{"e":"changed","id":"9","r":"sensors","state":{"lastupdated":"2018-03-18T20:26:21","humidity":2134},"t":"event"}</description>
 			</parameter>
@@ -64,7 +56,7 @@
 		</channels>
 
 		<config-description>
-			<parameter name="id" type="integer" required="false">
+			<parameter name="id" type="integer" required="true">
 				<label>Id</label>
 				<description>{"e":"changed","id":"9","r":"sensors","state":{"lastupdated":"2018-03-18T20:26:21","open":true},"t":"event"}</description>
 			</parameter>

@@ -17,6 +17,5 @@ package org.openhab.binding.deconz_websocket.internal;
  * @author Mirco Kahle - Initial contribution
  */
 public class deCONZ_WebsocketConfiguration {
-    public String type;
     public int id;
 }
