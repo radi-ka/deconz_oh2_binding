@@ -13,12 +13,12 @@ public class OpenClosedStateBuilder implements StateBuilder {
     public Optional<State> build(final JsonObject state) {
         final JsonElement stateElement = state.get("state");
 
-        if (stateElement.isJsonNull())
+        if (stateElement == null || stateElement.isJsonNull())
             return Optional.empty();
 
         final JsonElement openClosedElement = stateElement.getAsJsonObject().get("open");
 
-        if (openClosedElement.isJsonNull())
+        if (openClosedElement == null || openClosedElement.isJsonNull())
             return Optional.empty();
 
         final boolean isOpen = openClosedElement.getAsBoolean();

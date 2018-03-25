@@ -21,12 +21,12 @@ public class DecimalStateBuilder implements StateBuilder {
     public Optional<State> build(final JsonObject state) {
         final JsonElement stateElement = state.get("state");
 
-        if (stateElement.isJsonNull())
+        if (stateElement == null || stateElement.isJsonNull())
             return Optional.empty();
 
         final JsonElement jsonElement = stateElement.getAsJsonObject().get(stateName);
 
-        if (jsonElement.isJsonNull())
+        if (jsonElement == null || jsonElement.isJsonNull())
             return Optional.empty();
 
         final double decimal = jsonElement.getAsDouble() / decimalShift;

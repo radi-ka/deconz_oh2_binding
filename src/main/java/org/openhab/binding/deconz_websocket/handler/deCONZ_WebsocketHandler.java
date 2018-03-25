@@ -98,6 +98,11 @@ public class deCONZ_WebsocketHandler extends BaseThingHandler implements Connect
                 return;
             }
 
+            if (getCallback() == null) {
+                logger.warn("callback not initialized.");
+                return;
+            }
+
             updateState(channel, s.get());
         }
     }
