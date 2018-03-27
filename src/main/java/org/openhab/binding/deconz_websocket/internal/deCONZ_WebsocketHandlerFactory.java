@@ -14,6 +14,7 @@ package org.openhab.binding.deconz_websocket.internal;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
+import org.eclipse.smarthome.core.library.types.OpenClosedType;
 import org.eclipse.smarthome.core.thing.Thing;
 import org.eclipse.smarthome.core.thing.ThingTypeUID;
 import org.eclipse.smarthome.core.thing.binding.BaseThingHandlerFactory;
@@ -23,9 +24,9 @@ import org.openhab.binding.deconz_websocket.handler.Connection;
 import org.openhab.binding.deconz_websocket.handler.deCONZ_WebsocketHandler;
 import org.openhab.binding.deconz_websocket.internal.Filters.AllowAllFilter;
 import org.openhab.binding.deconz_websocket.internal.Filters.SensorEventsFilter;
+import org.openhab.binding.deconz_websocket.internal.StateBuilders.FromBooleanStateBuilder;
 import org.openhab.binding.deconz_websocket.internal.StateBuilders.DecimalStateBuilder;
 import org.openhab.binding.deconz_websocket.internal.StateBuilders.DefaultStateBuilder;
-import org.openhab.binding.deconz_websocket.internal.StateBuilders.OpenClosedStateBuilder;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.component.annotations.Component;
 
@@ -81,7 +82,7 @@ public class deCONZ_WebsocketHandlerFactory extends BaseThingHandlerFactory {
         } else if (THING_TYPE_HUMIDITY.equals(thingTypeUID)) {
             return new deCONZ_WebsocketHandler(thing, ws_connection, SensorEventsFilter.get(config.id), new DecimalStateBuilder("humidity", 2), CHANNEL_HUMIDITY);
         } else if (THING_TYPE_OPENCLOSED.equals(thingTypeUID)) {
-            return new deCONZ_WebsocketHandler(thing, ws_connection, SensorEventsFilter.get(config.id), new OpenClosedStateBuilder(), CHANNEL_OPENCLOSED);
+            return new deCONZ_WebsocketHandler(thing, ws_connection, SensorEventsFilter.get(config.id), new FromBooleanStateBuilder("open", OpenClosedType.OPEN, OpenClosedType.CLOSED), CHANNEL_OPENCLOSED);
         }
 
         return null;
