@@ -2,6 +2,7 @@ package org.openhab.binding.deconz_websocket.internal.StateBuilders;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.smarthome.core.types.State;
 
 import java.util.Optional;
@@ -18,6 +19,7 @@ public class FromBooleanStateBuilder implements StateBuilder {
         this.onFalse = onFalse;
     }
 
+    @NonNull
     @Override
     public Optional<State> build(final JsonObject state) {
         final JsonElement stateElement = state.get("state");
@@ -35,5 +37,14 @@ public class FromBooleanStateBuilder implements StateBuilder {
         } else {
             return Optional.of(onFalse);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "FromBooleanStateBuilder{" +
+                "stateName='" + stateName + '\'' +
+                ", onTrue=" + onTrue +
+                ", onFalse=" + onFalse +
+                '}';
     }
 }

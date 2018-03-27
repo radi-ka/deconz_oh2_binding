@@ -2,6 +2,7 @@ package org.openhab.binding.deconz_websocket.internal.Filters;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import org.eclipse.jdt.annotation.NonNull;
 
 public class SensorEventsFilter implements Filter {
     private final int sensorId;
@@ -10,6 +11,7 @@ public class SensorEventsFilter implements Filter {
         this.sensorId = sensorId;
     }
 
+    @NonNull
     public static Filter get(int sensorId) {
         return new SensorEventsFilter(sensorId);
     }
@@ -60,5 +62,12 @@ public class SensorEventsFilter implements Filter {
     @Override
     public FilterType getType() {
         return FilterType.SENSOR_STATE_CHANGED;
+    }
+
+    @Override
+    public String toString() {
+        return "SensorEventsFilter{" +
+                "sensorId=" + sensorId +
+                '}';
     }
 }

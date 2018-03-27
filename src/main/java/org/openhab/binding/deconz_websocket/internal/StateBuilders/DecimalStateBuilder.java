@@ -2,6 +2,7 @@ package org.openhab.binding.deconz_websocket.internal.StateBuilders;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.smarthome.core.library.types.DecimalType;
 import org.eclipse.smarthome.core.types.State;
 
@@ -17,6 +18,7 @@ public class DecimalStateBuilder implements StateBuilder {
         this.decimalShift = Math.pow(10, decimalShift);
     }
 
+    @NonNull
     @Override
     public Optional<State> build(final JsonObject state) {
         final JsonElement stateElement = state.get("state");
@@ -32,5 +34,13 @@ public class DecimalStateBuilder implements StateBuilder {
         final double decimal = jsonElement.getAsDouble() / decimalShift;
 
         return Optional.of(new DecimalType(decimal));
+    }
+
+    @Override
+    public String toString() {
+        return "DecimalStateBuilder{" +
+                "stateName='" + stateName + '\'' +
+                ", decimalShift=" + decimalShift +
+                '}';
     }
 }

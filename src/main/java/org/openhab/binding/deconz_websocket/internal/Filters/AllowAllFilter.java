@@ -1,6 +1,7 @@
 package org.openhab.binding.deconz_websocket.internal.Filters;
 
 import com.google.gson.JsonObject;
+import org.eclipse.jdt.annotation.NonNull;
 
 public class AllowAllFilter implements Filter {
     private static AllowAllFilter instance = null;
@@ -8,6 +9,7 @@ public class AllowAllFilter implements Filter {
     private AllowAllFilter() {
     }
 
+    @NonNull
     public static Filter get() {
         if (instance == null) {
             instance = new AllowAllFilter();
@@ -24,5 +26,10 @@ public class AllowAllFilter implements Filter {
     @Override
     public Filter.FilterType getType() {
         return Filter.FilterType.ALL;
+    }
+
+    @Override
+    public String toString() {
+        return "AllowAllFilter{}";
     }
 }
