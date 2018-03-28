@@ -63,6 +63,22 @@
 		</config-description>
 	</thing-type>
 
+	<thing-type id="presence">
+		<label>Presence detection device</label>
+		<description>Device that reports presence in its state.</description>
+
+		<channels>
+			<channel id="presence" typeId="presence" />
+		</channels>
+
+		<config-description>
+			<parameter name="id" type="integer" required="true">
+				<label>Id</label>
+				<description>{"e":"changed","id":"9","r":"sensors","state":{"lastupdated":"2018-03-18T20:26:21","presence":true},"t":"event"}</description>
+			</parameter>
+		</config-description>
+	</thing-type>
+
 	<channel-type id="allEvents">
 		<item-type>String</item-type>
 		<label>Events</label>
@@ -89,6 +105,13 @@
 		<label>Open/Closed</label>
 		<description>Window/DoorSensor updates.</description>
 		<state readOnly="true"></state>
+	</channel-type>
+
+	<channel-type id="presence">
+		<item-type>Number</item-type>
+		<label>Presence</label>
+		<description>Presence updates. 1 for presence detected, 0 for no presence.</description>
+		<state min="0" max="1" step="1" readOnly="true"></state>
 	</channel-type>
 
 </thing:thing-descriptions>

@@ -31,6 +31,7 @@ public class deCONZ_WebsocketBindingConstants {
     public static final String CHANNEL_TEMPERATURE = "temperature";
     public static final String CHANNEL_HUMIDITY = "humidity";
     public static final String CHANNEL_OPENCLOSED = "openclosed";
+    public static final String CHANNEL_PRESENCE = "presence";
     private static final String BINDING_ID = "deconz_websocket";
 
     // List of all Thing Type UIDs
@@ -38,11 +39,13 @@ public class deCONZ_WebsocketBindingConstants {
     public static final ThingTypeUID THING_TYPE_TEMP = new ThingTypeUID(BINDING_ID, "temperature");
     public static final ThingTypeUID THING_TYPE_HUMIDITY = new ThingTypeUID(BINDING_ID, "humidity");
     public static final ThingTypeUID THING_TYPE_OPENCLOSED = new ThingTypeUID(BINDING_ID, "openclose");
+    public static final ThingTypeUID THING_TYPE_PRESENCE = new ThingTypeUID(BINDING_ID, "presence");
 
     public static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = ImmutableSet.of(
             THING_TYPE_ALL,
             THING_TYPE_TEMP,
             THING_TYPE_HUMIDITY,
-            THING_TYPE_OPENCLOSED
+            THING_TYPE_OPENCLOSED,
+            THING_TYPE_PRESENCE
     );
 }

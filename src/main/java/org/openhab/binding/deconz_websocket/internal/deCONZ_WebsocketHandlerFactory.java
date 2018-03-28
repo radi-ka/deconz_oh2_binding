@@ -14,6 +14,7 @@ package org.openhab.binding.deconz_websocket.internal;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
+import org.eclipse.smarthome.core.library.types.DecimalType;
 import org.eclipse.smarthome.core.library.types.OpenClosedType;
 import org.eclipse.smarthome.core.thing.Thing;
 import org.eclipse.smarthome.core.thing.ThingTypeUID;
@@ -83,6 +84,8 @@ public class deCONZ_WebsocketHandlerFactory extends BaseThingHandlerFactory {
             return new deCONZ_WebsocketHandler(thing, ws_connection, SensorEventsFilter.get(config.id), new DecimalStateBuilder("humidity", 2), CHANNEL_HUMIDITY);
         } else if (THING_TYPE_OPENCLOSED.equals(thingTypeUID)) {
             return new deCONZ_WebsocketHandler(thing, ws_connection, SensorEventsFilter.get(config.id), new FromBooleanStateBuilder("open", OpenClosedType.OPEN, OpenClosedType.CLOSED), CHANNEL_OPENCLOSED);
+        } else if (THING_TYPE_PRESENCE.equals(thingTypeUID)) {
+            return new deCONZ_WebsocketHandler(thing, ws_connection, SensorEventsFilter.get(config.id), new FromBooleanStateBuilder("presence", new DecimalType(1), new DecimalType(0)), CHANNEL_PRESENCE);
         }
 
         return null;
